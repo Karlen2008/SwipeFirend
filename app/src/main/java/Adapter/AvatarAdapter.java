@@ -58,10 +58,10 @@ public  class AvatarAdapter extends RecyclerView.Adapter<AvatarAdapter.CategoryV
                 int previousSelectedPosition = selectedPosition;
                 selectedPosition = holder.getAdapterPosition();
 
-
+                // Сбрасываем цвет фона для предыдущего выбранного элемента
                 notifyItemChanged(previousSelectedPosition);
 
-
+                // Уведомляем адаптер об изменении данных
                 notifyItemChanged(selectedPosition);
             }
         });
