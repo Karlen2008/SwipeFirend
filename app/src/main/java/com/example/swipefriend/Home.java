@@ -1,28 +1,66 @@
 package com.example.swipefriend;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
 
 public class Home extends AppCompatActivity {
+    BottomNavigationView bottomNavigationView;
+    HomeFragment homeFragment = new HomeFragment();
+    MessageFragment messageFragment = new MessageFragment();
+    AccountFragment accountFragment = new AccountFragment();
     ArrayList<String> biostrings;
-ImageButton messege_button, profile_button;
+
 
     ArrayAdapter arrayAdapter;
     int n = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, homeFragment).commit();
+
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+               if(item.getItemId() == R.id.nav_home)
+               {
+                   getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, homeFragment).commit();
+                   return true;
+               }
+              else if(  item.getItemId() == R.id.nav_message)
+               {
+                   getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, messageFragment).commit();
+                   return true;
+               }
+              else if(item.getItemId() == R.id.nav_account)
+               {
+                   getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, accountFragment).commit();
+                   return true;
+               }
+                return false;
+            }
+        });
+    }
+}
+ /*
         biostrings = new ArrayList<String>();
         biostrings.add("Hey, I'm Alex Turner, a 24-year-old tech whiz passionate about coding and exploring the endless possibilities of software development. In the lines of code, I find my creative outlet and thrive on the ever-evolving digital frontier.");
         biostrings.add("Hi, I'm Sophie Reed, a 27-year-old nature lover with a penchant for environmental advocacy and a talent for sustainable design. Whether I'm planting trees or crafting eco-friendly spaces.");
@@ -68,23 +106,8 @@ ImageButton messege_button, profile_button;
             }
         });
 
-        messege_button = findViewById(R.id.messege_button);
-        profile_button = findViewById(R.id.profile_button);
 
-        messege_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Home.this, message.class);
-                startActivity(intent);
-            }
-        });
+*/
 
-        profile_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Home.this, profile.class);
-                startActivity(intent);
-            }
-        });
-    }
-}
+
+

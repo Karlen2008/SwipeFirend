@@ -7,108 +7,26 @@
     android:background="#FFFFFF"
     tools:context=".Home">
 
-    <ImageButton
-        android:id="@+id/imageButton7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="4dp"
-        android:background="@drawable/yes_frame"
-        app:layout_constraintEnd_toEndOf="@+id/card2"
-        app:layout_constraintTop_toBottomOf="@+id/card2" />
-
-    <ImageButton
-        android:id="@+id/imageButton6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/no_frame"
-        app:layout_constraintStart_toStartOf="@+id/card2"
-        app:layout_constraintTop_toBottomOf="@+id/card2" />
-
-    <ImageView
-        android:id="@+id/imageView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/menu_list"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/rectangle_2" />
-
-    <ImageView
-        android:id="@+id/imageView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        app:layout_constraintBottom_toTopOf="@+id/menu_list"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/rectangle_4" />
-
-    <RelativeLayout
-        android:id="@+id/menu_list"
-        android:layout_width="407dp"
-        android:layout_height="73dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/menu_list"
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <ImageButton
-            android:id="@+id/imageButton4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="36dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/icon_item"
-            android:backgroundTint="#F0F4F6"
-            android:src="@drawable/home" />
-
-        <ImageButton
-            android:id="@+id/profile_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="36dp"
-            android:layout_marginBottom="15dp"
-            android:layout_weight="1"
-            android:background="@drawable/account"
-            android:backgroundTint="#0099FF" />
-
-        <ImageButton
-
-            android:id="@+id/messege_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="176dp"
-            android:layout_marginBottom="12dp"
-            android:background="@drawable/message"
-            android:backgroundTint="#0099FF"
-            android:foregroundGravity="center" />
-    </RelativeLayout>
-
-    <com.lorentzos.flingswipe.SwipeFlingAdapterView
-        android:id="@+id/card2"
-        android:layout_width="300dp"
-        android:layout_height="430dp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:max_visible="7"
-        app:min_adapter_stack="8"
-        app:rotation_degrees="20">
-
-    </com.lorentzos.flingswipe.SwipeFlingAdapterView>
+        app:layout_constraintTop_toTopOf="parent" />
 
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/bottom_navigation"
+        tools:layout_editor_absoluteX="0dp"
+
+        android:background="?android:attr/windowBackground"
+        >
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 </androidx.constraintlayout.widget.ConstraintLayout>

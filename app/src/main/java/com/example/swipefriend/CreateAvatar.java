@@ -33,7 +33,7 @@ Button button;
 
 
         List<Avatar> avatars = new ArrayList<>();
-        avatars.add(new Avatar(R.drawable.avatar_2));
+       // avatars.add(new Avatar(R.drawable.avatar_2));
         avatars.add(new Avatar(R.drawable.avatar_3));
         avatars.add(new Avatar(R.drawable.avatar_4));
         avatars.add(new Avatar(R.drawable.avatar_5));

@@ -89,10 +89,10 @@ setData(new String[] {"Reading", "Exploring", "Creativity", "Sports", "Watching 
                       });
                       break;
                   case 4:
-                      // Вопрос
+
                       String dreamDestinationsQuestion = "If you could travel to any destination in the world, which would be your dream destination?";
 
-// Ответы
+
                       setData(new String[]  {
                               "Bora Bora, French Polynesia",
                               "Kyoto, Japan",
@@ -191,6 +191,21 @@ ActivityId++;
         float scale = getResources().getDisplayMetrics().density;
         return (int) (dp * scale + 0.5f);
     }
-   
+    private List<Keyword> makeData()
+    {
+        List<Keyword>  mListKeyword = new ArrayList<>();
+        mListKeyword.add(new Keyword( "TinCoder"));
+        mListKeyword.add(new Keyword( "Tin"));
+        mListKeyword.add(new Keyword( "Android Studio"));
+        mListKeyword.add(new Keyword( "The eyes chico they"));
+        mListKeyword.add(new Keyword("Coder"));
+        mListKeyword.add(new Keyword("Professionaltiy"));
+        mListKeyword.add(new Keyword("Monster"));
+        mListKeyword.add(new Keyword( "TinCoder"));
+        mListKeyword.add(new Keyword("Tin"));
+        mListKeyword.add(new Keyword( "Android Studio"));
+        mListKeyword.add(new Keyword("The eyes chico they"));
+return mListKeyword;
+    }
 
 }

@@ -1,6 +1,7 @@
 package com.example.swipefriend;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,8 +10,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 public class MainActivity extends AppCompatActivity {
 TextView signupTextView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
