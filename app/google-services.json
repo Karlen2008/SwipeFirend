@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1042714496776",
+    "firebase_url": "https://swipefriend-70f3e-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "swipefriend-70f3e",
+    "storage_bucket": "swipefriend-70f3e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1042714496776:android:acb4182bae2ad27f40a6bd",
+        "android_client_info": {
+          "package_name": "com.example.swipefriend"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCY080RbWSL-Ecnb7d6X7u39qCEiWEdCz8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

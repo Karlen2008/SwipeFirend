@@ -21,7 +21,7 @@ EditText editText;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personalinfo);
         textView = findViewById(R.id.textView6);
-       NextButton = findViewById(R.id.nextbutton);
+       NextButton = findViewById(R.id.loginbutton);
         editText = findViewById(R.id.editTextText_bio);
 
 

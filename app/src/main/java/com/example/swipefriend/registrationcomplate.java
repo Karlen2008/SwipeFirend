@@ -15,7 +15,7 @@ public class registrationcomplate extends AppCompatActivity {
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrationcomplate);
-        button = findViewById(R.id.nextbutton);
+        button = findViewById(R.id.loginbutton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

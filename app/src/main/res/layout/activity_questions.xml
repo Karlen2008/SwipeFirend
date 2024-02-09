@@ -105,7 +105,7 @@ android:layout_marginTop="20dp"
         app:srcCompat="@drawable/rectangle_67" />
 
     <Button
-        android:id="@+id/nextbutton"
+        android:id="@+id/loginbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="44dp"

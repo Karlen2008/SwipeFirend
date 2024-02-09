@@ -10,13 +10,14 @@ import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Switch;
 import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 import com.wefika.flowlayout.FlowLayout;
 
-import java.lang.reflect.Array;
-import java.security.Key;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import Model.Keyword;
@@ -31,7 +32,7 @@ TextView questionText;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questions);
-        NextButton = findViewById(R.id.nextbutton);
+        NextButton = findViewById(R.id.loginbutton);
         mflowLayout = findViewById(R.id.flow_layout);
    questionText = findViewById(R.id.textView3);
 
@@ -112,6 +113,12 @@ NextButton.setText("Finish");
 Intent intent = new Intent(questions.this, Personalinfo.class);
                       intent.putStringArrayListExtra("answers", new ArrayList<>(answers));
 startActivity(intent);
+                      HashMap<String, Object> AnswersHashMap= new HashMap<>();
+                      AnswersHashMap.put("answers", answers.toString());
+
+
+                      FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).updateChildren(AnswersHashMap);
+
                       break;
 
 
