@@ -61,7 +61,7 @@ public class sign_up extends AppCompatActivity {
                             {
                                 HashMap<String,String> userinfo = new HashMap<>();
                                 userinfo.put("email", email.getText().toString() );
-                                userinfo.put("username",password.getText().toString());
+                                userinfo.put("username",fullname.getText().toString());
                                 FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(userinfo);
 
                                 Intent intent = new Intent(sign_up.this, registrationcomplate.class);

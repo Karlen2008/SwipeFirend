@@ -10,7 +10,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import Adapter.AvatarAdapter;
@@ -54,6 +58,13 @@ button.setOnClickListener(new View.OnClickListener() {
             Intent intent1 = getIntent();
             Intent intent = new Intent(CreateAvatar.this, ProfilePreviewActivity.class);
             intent.putExtra("bio", intent1.getStringExtra("bio"));
+
+            HashMap<String, Object> AvatarHashMap= new HashMap<>();
+            AvatarHashMap.put("bio", adapter.getSelectedPosition());
+
+
+            FirebaseDatabase.getInstance().getReference().child("Users7").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).updateChildren(AvatarHashMap);
+
             intent.putExtra("avatar", avatars.get(adapter.getSelectedPosition()).getImage());
             startActivity(intent);
         }
