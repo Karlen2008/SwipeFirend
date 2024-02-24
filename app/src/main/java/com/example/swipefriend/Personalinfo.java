@@ -33,18 +33,24 @@ EditText editText;
           @Override
           public void onClick(View v) {
               if(editText.getText().length() >=45 && editText.getText().length() <=121) {
+                  /*
                   HashMap<String, Object> bioHashMap= new HashMap<>();
                   bioHashMap.put("bio", editText.getText().toString());
 
 
                   FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).updateChildren(bioHashMap);
+                  */
+                  UserDataGlobal userDataGlobal = UserDataGlobal.getInstance();
 
+                  userDataGlobal.setBio(editText.getText().toString());
                   Intent intent = new Intent(Personalinfo.this, CreateAvatar.class);
-                  intent.putExtra("bio", editText.getText().toString());
+
                   startActivity(intent);
+
               }
           }
       });
+      /*
         Intent intent = getIntent();
         List<String> receivedList = intent.getStringArrayListExtra("answers");
         String str = "";
@@ -55,5 +61,7 @@ EditText editText;
             str+= " ";
         }
         textView.setText(str);
+
+       */
     }
 }

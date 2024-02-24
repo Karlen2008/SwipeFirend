@@ -19,7 +19,7 @@ public class registrationcomplate extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(registrationcomplate.this, questions.class);
+                Intent intent = new Intent(registrationcomplate.this, MainActivity.class);
                 startActivity(intent);
             }
         });

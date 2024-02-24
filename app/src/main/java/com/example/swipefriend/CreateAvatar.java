@@ -55,18 +55,23 @@ button.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
         if(adapter.getSelectedPosition() != RecyclerView.NO_POSITION) {
-            Intent intent1 = getIntent();
+
+            UserDataGlobal userDataGlobal = UserDataGlobal.getInstance();
+
+            userDataGlobal.setAvatar_index(adapter.getSelectedPosition());
             Intent intent = new Intent(CreateAvatar.this, ProfilePreviewActivity.class);
-            intent.putExtra("bio", intent1.getStringExtra("bio"));
+
+            /*
 
             HashMap<String, Object> AvatarHashMap= new HashMap<>();
             AvatarHashMap.put("bio", adapter.getSelectedPosition());
 
 
             FirebaseDatabase.getInstance().getReference().child("Users7").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).updateChildren(AvatarHashMap);
-
+                */
             intent.putExtra("avatar", avatars.get(adapter.getSelectedPosition()).getImage());
             startActivity(intent);
+
         }
     }
 });
