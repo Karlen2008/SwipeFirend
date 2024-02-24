@@ -19,6 +19,7 @@ import com.wefika.flowlayout.FlowLayout;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import com.example.swipefriend.UserDataGlobal;
 
 import Model.Keyword;
 public class questions extends AppCompatActivity {
@@ -110,15 +111,21 @@ setData(new String[] {"Reading", "Exploring", "Creativity", "Sports", "Watching 
 NextButton.setText("Finish");
                       break;
                   case 5:
+UserDataGlobal userDataGlobal = UserDataGlobal.getInstance();
+
+userDataGlobal.setAnswers(answers);
+
 Intent intent = new Intent(questions.this, Personalinfo.class);
-                      intent.putStringArrayListExtra("answers", new ArrayList<>(answers));
+
 startActivity(intent);
+
+                           /*
                       HashMap<String, Object> AnswersHashMap= new HashMap<>();
                       AnswersHashMap.put("answers", answers.toString());
 
 
                       FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).updateChildren(AnswersHashMap);
-
+                       */
                       break;
 
 
@@ -198,21 +205,6 @@ ActivityId++;
         float scale = getResources().getDisplayMetrics().density;
         return (int) (dp * scale + 0.5f);
     }
-    private List<Keyword> makeData()
-    {
-        List<Keyword>  mListKeyword = new ArrayList<>();
-        mListKeyword.add(new Keyword( "TinCoder"));
-        mListKeyword.add(new Keyword( "Tin"));
-        mListKeyword.add(new Keyword( "Android Studio"));
-        mListKeyword.add(new Keyword( "The eyes chico they"));
-        mListKeyword.add(new Keyword("Coder"));
-        mListKeyword.add(new Keyword("Professionaltiy"));
-        mListKeyword.add(new Keyword("Monster"));
-        mListKeyword.add(new Keyword( "TinCoder"));
-        mListKeyword.add(new Keyword("Tin"));
-        mListKeyword.add(new Keyword( "Android Studio"));
-        mListKeyword.add(new Keyword("The eyes chico they"));
-return mListKeyword;
+
     }
 
-}
