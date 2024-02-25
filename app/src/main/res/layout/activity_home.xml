@@ -23,11 +23,15 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/bottom_navigation"
-        tools:layout_editor_absoluteX="0dp"
-
         android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:labelVisibilityMode="selected"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_navigation"
+        app:itemIconTint="@color/PremiumBlue"
+        app:itemTextColor="@color/PremiumBlue"
+        app:itemHorizontalTranslationEnabled="false"
         >
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
