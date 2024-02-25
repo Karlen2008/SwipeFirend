@@ -34,7 +34,7 @@ Button button;
 
 
 
-
+/*
         List<Avatar> avatars = new ArrayList<>();
        // avatars.add(new Avatar(R.drawable.avatar_2));
         avatars.add(new Avatar(R.drawable.avatar_3));
@@ -45,7 +45,10 @@ Button button;
         avatars.add(new Avatar(R.drawable.avatar_8));
         avatars.add(new Avatar(R.drawable.avatar_9));
 
-        AvatarAdapter adapter = new AvatarAdapter(avatars, this);
+ */
+Avatargetter avatargetter = new Avatargetter();
+
+        AvatarAdapter adapter = new AvatarAdapter(avatargetter.getAvatars(), this);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
 
         recyclerView.setLayoutManager(layoutManager);
@@ -69,7 +72,7 @@ button.setOnClickListener(new View.OnClickListener() {
 
             FirebaseDatabase.getInstance().getReference().child("Users7").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).updateChildren(AvatarHashMap);
                 */
-            intent.putExtra("avatar", avatars.get(adapter.getSelectedPosition()).getImage());
+           intent.putExtra("avatar", avatargetter.getAvatarbyindex(adapter.getSelectedPosition()).getImage());
             startActivity(intent);
 
         }
