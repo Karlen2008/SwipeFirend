@@ -34,7 +34,7 @@ public class AccountFragment extends Fragment {
         FrameLayout frameLayout = view.findViewById(R.id.frameaccaount);
         Exitbutton = view.findViewById(R.id.exitimagebutton);
         View newLayout = getLayoutInflater().inflate(R.layout.details, frameLayout, false);
-        frameLayout.addView(newLayout);
+       // frameLayout.addView(newLayout);
 
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -44,18 +44,20 @@ public class AccountFragment extends Fragment {
 
             DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("Users").child(uid);
             userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     if(snapshot.exists())
                     {
+                        frameLayout.addView(newLayout);
                         Avatargetter avatargetter = new Avatargetter();
                         TextView bio = newLayout.findViewById(R.id.editTextText_bio);
                         TextView fullname = newLayout.findViewById(R.id.fullname);
                         ImageView  imageView = newLayout.findViewById(R.id.imageView14);
                         bio.setText(snapshot.child("bio").getValue(String.class));
                         fullname.setText(snapshot.child("fullname").getValue(String.class));
-                     int a =   snapshot.child("avatar").getValue(Integer.class);
-                        imageView.setImageResource(avatargetter.getAvatarbyindex(a).getImage()); //snapshot.child("avatar").getValue(int.class));
+
+                        imageView.setImageResource(avatargetter.getAvatarbyindex(snapshot.child("avatar").getValue(Integer.class)).getImage()); //snapshot.child("avatar").getValue(int.class));
                     }
                 }
 

@@ -3,62 +3,47 @@ package com.example.swipefriend;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link MessageFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.List;
+
+import Adapter.ChatAdapter;
+import Model.ChatItemModel;
+
+
 public class MessageFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public MessageFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment MessageFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static MessageFragment newInstance(String param1, String param2) {
-        MessageFragment fragment = new MessageFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
+    RecyclerView ChatrecyclerView;
+    ChatAdapter chatAdapter;
+    ChatItemModel chatItemModel;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_message, container, false);
+        View view = inflater.inflate(R.layout.fragment_message, container, false);
+
+        ChatrecyclerView = view.findViewById(R.id.chatRecyclerView);
+        List<ChatItemModel> chatItemModels  =new ArrayList<>();
+
+        chatItemModels.add(new ChatItemModel(4, "dwr.eth", "11:47", "Hi! I'm sharing an exclusive invit..."));
+        chatItemModels.add(new ChatItemModel(0, "Jasmine Essim",  "13:00", "Let me call my agency"));
+        chatItemModels.add(new ChatItemModel(5, "stani", "8:30", "So let me know when you’re..." ));
+        chatItemModels.add(new ChatItemModel(2, "Jacques Webster","19 jan",  "For sure!" ));
+        chatItemModels.add(new ChatItemModel(1, "Jasmine Essim",  "23 jane", "asd" ));
+
+
+
+
+
+        chatAdapter = new ChatAdapter(chatItemModels, getContext());
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+        ChatrecyclerView.setLayoutManager(layoutManager);
+       ChatrecyclerView.setAdapter(chatAdapter);
+
+        return view;
     }
 }

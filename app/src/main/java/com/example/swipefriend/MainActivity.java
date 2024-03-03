@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CursorAdapter;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -73,6 +74,7 @@ Button button;
                             .addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
+
                                     if (e instanceof FirebaseAuthInvalidUserException  ||  e instanceof FirebaseAuthInvalidCredentialsException) {
                                         errortextview.setText("Invalid email or password");
                                         email.setBackgroundTintList(ContextCompat.getColorStateList(MainActivity.this,  R.color.red));

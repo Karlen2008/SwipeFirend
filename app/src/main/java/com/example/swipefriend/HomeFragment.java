@@ -1,5 +1,6 @@
 package com.example.swipefriend;
 
+import android.media.Image;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,7 +8,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
@@ -19,6 +23,7 @@ import java.util.ArrayList;
 
     ArrayList<String> biostrings;
     ArrayAdapter arrayAdapter;
+    ImageView like_icon, dizlike_icon;
 
 
     @Override
@@ -34,8 +39,14 @@ import java.util.ArrayList;
         biostrings.add("Greetings, I'm Olivia Turner, a 30-year-old wanderlust-filled travel blogger with an insatiable curiosity for diverse cultures.");
 
         SwipeFlingAdapterView swipeFlingAdapterView = view.findViewById(R.id.card2);
+        like_icon = view.findViewById(R.id.like);
+        dizlike_icon = view.findViewById(R.id.dizlike);
+
 
         arrayAdapter = new ArrayAdapter<String>(requireContext(), R.layout.details, R.id.editTextText_bio, biostrings);
+        Animation likeshakeAnimation = AnimationUtils.loadAnimation(requireContext(), R.anim.shake);
+        Animation dizlikeshakeAnimation = AnimationUtils.loadAnimation(requireContext(), R.anim.dizlike_shake);
+
 
         swipeFlingAdapterView.setAdapter(arrayAdapter);
         swipeFlingAdapterView.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
@@ -48,11 +59,18 @@ import java.util.ArrayList;
             @Override
             public void onLeftCardExit(Object o) {
                 Toast.makeText(requireContext(), "LEFT", Toast.LENGTH_SHORT).show();
+
+
+                dizlike_icon.startAnimation(dizlikeshakeAnimation);
             }
 
             @Override
             public void onRightCardExit(Object o) {
                 Toast.makeText(requireContext(), "RIGHT", Toast.LENGTH_SHORT).show();
+
+
+
+                like_icon.startAnimation(likeshakeAnimation);
             }
 
             @Override
